@@ -16,11 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        let pokeMasterView = PokeMasterView()
+        let pokeList = PokemonList()
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: pokeMasterView)
+            window.rootViewController = UIHostingController(rootView: pokeList)
             self.window = window
             window.makeKeyAndVisible()
         }
