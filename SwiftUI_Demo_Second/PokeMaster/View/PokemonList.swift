@@ -11,6 +11,7 @@ import SwiftUI
 struct PokemonList: View {
     
     @State var expandingIndex: Int?
+    @State var searchValue: String = ""
     
     var body: some View {
         
@@ -19,6 +20,9 @@ struct PokemonList: View {
 //        }
         
         ScrollView {
+            
+            TextField.init("搜索", text: $searchValue)
+                .padding(EdgeInsets(top: 10, leading: 25, bottom: 10, trailing: 25))
             
             ForEach(PokemonViewModel.all) { pokemon in
                 
@@ -31,8 +35,12 @@ struct PokemonList: View {
                     self.expandingIndex =  self.expandingIndex == pokemon.id ? (nil) : (pokemon.id)
                 }
             }
-        }
-        
+        }.overlay(
+            VStack {
+                Spacer()
+                PokemonInfoPanel(model: .sample(id: 1))
+            }.edgesIgnoringSafeArea(.bottom)
+        )
     }
 }
 
