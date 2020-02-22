@@ -16,11 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        let pokemon = PokemonRootView()
+        let tab = MainTab().environmentObject(Store())
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: pokemon)
+            window.rootViewController = UIHostingController(rootView: tab)
             self.window = window
             window.makeKeyAndVisible()
         }
