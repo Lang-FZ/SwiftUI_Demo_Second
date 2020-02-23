@@ -57,7 +57,9 @@ struct SettingView: View {
                 }
                 
                 if settings.loginRequesting {
-                    Text("登录中...")
+                    ActivityView()
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                 } else {
                     Button(settings.accountBehavior.text) {
                         self.store.dispatch(
@@ -71,7 +73,9 @@ struct SettingView: View {
                 
                 Text(settings.loginUser?.email ?? "")
                 Button("注销") {
-                    print("注销")
+                    self.store.dispatch(
+                        .logout
+                    )
                 }
             }
         }

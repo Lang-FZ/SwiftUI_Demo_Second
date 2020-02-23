@@ -36,6 +36,10 @@ class Store: ObservableObject {
             case .failure(let error):
                 appState.settings.loginError = error
             }
+        case .logout:
+            appState.settings.loginRequesting = false
+            appState.settings.loginUser = nil
+            appState.settings.loginError = nil
         }
         
         return (appState, appCommand)

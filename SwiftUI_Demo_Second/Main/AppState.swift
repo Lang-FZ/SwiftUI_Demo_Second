@@ -36,13 +36,22 @@ extension AppState {
             case id, name, color, favorite
         }
         
-        var showEnglishName = true
+        @UserDefaultsStorage(key: "showEnglishName", value: true)
+        var showEnglishName: Bool
+        
+//        @UserDefaultsStorage(key: "sorting", value: Sorting.id)
         var sorting = Sorting.id
-        var showFavoriteOnly = false
+        
+        @UserDefaultsStorage(key: "showFavoriteOnly", value: false)
+        var showFavoriteOnly: Bool
     }
 }
 
-extension AppState.Settings.Sorting {
+protocol EnumText {
+    var text: String { get }
+}
+
+extension AppState.Settings.Sorting: EnumText {
     
     var text: String {
         

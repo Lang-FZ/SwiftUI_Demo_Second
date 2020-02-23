@@ -94,6 +94,7 @@
 		CFB2D5E523FFD6A400A75670 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB2D5E423FFD6A400A75670 /* LoginRequest.swift */; };
 		CFB2D5E723FFD8EE00A75670 /* AppCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB2D5E623FFD8EE00A75670 /* AppCommand.swift */; };
 		CFB2D5E92400310900A75670 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB2D5E82400310900A75670 /* FileStorage.swift */; };
+		CFB2D5EB2402BD8A00A75670 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB2D5EA2402BD8A00A75670 /* ActivityIndicatorView.swift */; };
 		CFD2D0C923FAFA3600213B2D /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD2D0C823FAFA3600213B2D /* MainTab.swift */; };
 		CFD2D0CC23FD744900213B2D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD2D0CB23FD744900213B2D /* Store.swift */; };
 		CFD2D0CE23FD770300213B2D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD2D0CD23FD770300213B2D /* AppState.swift */; };
@@ -193,6 +194,7 @@
 		CFB2D5E423FFD6A400A75670 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CFB2D5E623FFD8EE00A75670 /* AppCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommand.swift; sourceTree = "<group>"; };
 		CFB2D5E82400310900A75670 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
+		CFB2D5EA2402BD8A00A75670 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		CFD2D0C823FAFA3600213B2D /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		CFD2D0CB23FD744900213B2D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		CFD2D0CD23FD770300213B2D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				CF523FA123F5B131009FCD55 /* SettingRootView.swift */,
 				CF523F9F23F5A871009FCD55 /* SettingView.swift */,
 				CFB2D5E023FFBF8500A75670 /* User.swift */,
+				CFB2D5EA2402BD8A00A75670 /* ActivityIndicatorView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				CF523F9B23F5A2E4009FCD55 /* BlurView.swift in Sources */,
 				CFE5F29323F4567400A6ED7A /* ToolButtonModifier.swift in Sources */,
 				CFB2D5E123FFBF8500A75670 /* User.swift in Sources */,
+				CFB2D5EB2402BD8A00A75670 /* ActivityIndicatorView.swift in Sources */,
 				CF523FA423F5B296009FCD55 /* PokemonRootView.swift in Sources */,
 				CF9A3E4723ED090100266A79 /* FileHelper.swift in Sources */,
 				CFE5F29723F5438800A6ED7A /* PokemonList.swift in Sources */,

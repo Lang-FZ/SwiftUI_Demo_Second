@@ -48,3 +48,63 @@ struct FileStorage<T: Codable> {
     }
 }
 
+@propertyWrapper
+struct UserDefaultsStorage<T: Codable> {
+    
+    let key: String
+    var value: T
+    
+    init(key: String, value: T) {
+        
+        self.key = key
+        
+        if let userDefaultsValue = UserDefaults.standard.value(forKey: key) {
+            self.value = userDefaultsValue as! T
+        } else {
+            self.value = value
+        }
+    }
+    
+    var wrappedValue: T {
+    
+        set {
+            value = newValue
+            UserDefaults.standard.set(value, forKey: key)
+            UserDefaults.standard.synchronize()
+        }
+        
+        get {
+            value
+        }
+    }
+}
+/*
+@propertyWrapper
+struct UserDefaultsStorageEnum<EnumText: Codable> {
+    
+    let key: String
+    var value: EnumText
+    
+    init(key: String, value: EnumText) {
+        
+        self.key = key
+        
+        if let userDefaultsValue = UserDefaults.standard.value(forKey: key) as? String {
+//            self.value = userDefaultsValue as! EnumText
+        } else {
+//            self.value = value
+        }
+    }
+    
+    var wrappedValue: EnumText {
+        
+        set {
+            
+        }
+        
+        get {
+            value
+        }
+    }
+}
+*/
