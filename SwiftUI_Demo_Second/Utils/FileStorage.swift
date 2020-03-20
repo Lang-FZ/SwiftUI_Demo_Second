@@ -68,6 +68,7 @@ struct UserDefaultsStorage<T: Codable> {
     var wrappedValue: T {
     
         set {
+            
             value = newValue
             UserDefaults.standard.set(value, forKey: key)
             UserDefaults.standard.synchronize()

@@ -10,8 +10,7 @@ import SwiftUI
 
 struct PokemonList: View {
     
-    @State var expandingIndex: Int?
-    @State var searchValue: String = ""
+    @EnvironmentObject var store: Store
     
     var body: some View {
         
@@ -21,18 +20,23 @@ struct PokemonList: View {
         
         ScrollView {
             
-            TextField.init("搜索", text: $searchValue)
+            TextField.init("搜索", text: $store.appState.pokemonList.searchValue)
                 .padding(EdgeInsets(top: 10, leading: 25, bottom: 10, trailing: 25))
             
-            ForEach(PokemonViewModel.all) { pokemon in
+            ForEach(store.appState.pokemonList.allPokemonsByID) { pokemon in
                 
                 PokemonInfoRow(
                     model: pokemon,
-                    expanded: self.expandingIndex == pokemon.id
+                    expanded: self.store.appState.pokemonList.selectionState.expandingIndex == pokemon.id
                 )
                 .onTapGesture {
                     
-                    self.expandingIndex =  self.expandingIndex == pokemon.id ? (nil) : (pokemon.id)
+                    self.store.dispatch(
+                        .toggleListSelection(index: pokemon.id)
+                    )
+                    self.store.dispatch(
+                        .loadAbilities(pokemon: pokemon.pokemon)
+                    )
                 }
             }
         }

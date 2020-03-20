@@ -39,7 +39,7 @@ struct SettingView: View {
             if settings.loginUser == nil {
                 
                 Picker(
-                    selection: settingsBinding.accountBehavior,
+                    selection: settingsBinding.checker.accountBehavior,
                     label: Text(""))
                 {
                     ForEach(AppState.Settings.AccountBehavior.allCases, id: \.self) {
@@ -48,12 +48,14 @@ struct SettingView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 
-                TextField("电子邮箱", text: settingsBinding.email)
+                TextField("电子邮箱", text: settingsBinding.checker.email)
+                    .foregroundColor(settings.isEmailValid ? .green : .red)
                 
-                SecureField("密码", text: settingsBinding.password)
+                SecureField("密码", text: settingsBinding.checker.password)
                 
-                if settings.accountBehavior == .register {
-                    SecureField("确认密码", text: settingsBinding.verifyPassword)
+                if settings.checker.accountBehavior == .register {
+                    SecureField("确认密码", text: settingsBinding.checker.verifyPassword)
+                        .foregroundColor(settings.isPasswordValid ? .green : .red)
                 }
                 
                 if settings.loginRequesting {
@@ -61,13 +63,14 @@ struct SettingView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                 } else {
-                    Button(settings.accountBehavior.text) {
+                    Button(settings.checker.accountBehavior.text) {
                         self.store.dispatch(
                             .login(
-                                email: self.settings.email,
-                                password: self.settings.password)
+                                email: self.settings.checker.email,
+                                password: self.settings.checker.password)
                         )
                     }
+                    .disabled(settings.checker.accountBehavior == .register && !settings.isPasswordValid)
                 }
             } else {
                 
@@ -106,7 +109,7 @@ struct SettingView: View {
         Section() {
             
             Button("清空缓存") {
-                print("清空缓存")
+                self.store.dispatch(.clearCache)
             }
             .font(.subheadline)
             .foregroundColor(.red)
